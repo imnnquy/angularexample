@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+
+        <div data-ng-app="myApp" data-ng-controller="MainCtrl as Ctrl">
+        	{{Ctrl.helloMessage}}
+        	<br/>
+        	{{Ctrl.goodbyeMessage}}
+        </div>
+
+
+        <script type="text/javascript" src="../jslib/angular.js"></script>
+
+        <script type="text/javascript">
+        	var myApp = angular.module("myApp", []);
+        	myApp.controller("MainCtrl", [function(){
+        		this.helloMessage = "Hello moto";
+        		this.goodbyeMessage = `Goodbye moto ${this.helloMessage}`;
+        		console.log('fack ya');
+        	}]);
+        </script>
+
+    </body>
+</html>
