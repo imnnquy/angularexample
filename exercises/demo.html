@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <div data-ng-app="myApp1" data-ng-controller="FirstController as Ctrl">
-        	{{Ctrl.helloMessage}}
-        	<br/>
-        	{{Ctrl.goodbyeMessage}}
+</head>
+
+<body>
+
+    <div data-ng-app="myApp1" data-ng-controller="FirstController as Ctrl">
+        {{Ctrl.helloMessage}}
+        <br/> {{Ctrl.goodbyeMessage}}
+    </div>
+
+    <div id="myApp2ID" data-ng-app="myApp2" data-ng-controller="SeccondController as Ctrl2">
+        <button data-ng-click="Ctrl2.changeMessage()">Hello Message</button>
+        <br/>
+        <span data-ng-bind="Ctrl2.message"></span>
+    </div>
+
+    <div id="myApp3ID" data-ng-app="myApp3" data-ng-controller="ThirdController as Ctrl">
+
+        <div data-ng-repeat="note in Ctrl.notes">
+            <span>{{note.label}}</span>
+            <span data-ng-bind="note.status"></span>
         </div>
 
-        <div id="myApp2ID" data-ng-app="myApp2" data-ng-controller="SeccondController as Ctrl2">
-            <button data-ng-click="Ctrl2.changeMessage()">Hello Message</button>
-            <br/>
-            <span data-ng-bind="Ctrl2.message"></span>
-        </div>
+    </div>
 
-        <div id="myApp3ID" data-ng-app="myApp3" data-ng-controller="ThirdController as Ctrl">
+    <script type="text/javascript" src="../jslib/angular.js"></script>
 
-            <div data-ng-repeat="note in Ctrl.notes">
-                <span>{{note.label}}</span>
-                <span data-ng-bind="note.status"></span>
-            </div>
+    <script type="text/javascript">
+    var myApp1 = angular.module("myApp1", []);
+    myApp1.controller("FirstController", [function() {
+        var self = this;
+        self.helloMessage = "Hello moto";
+        self.goodbyeMessage = "Goodbye moto " + self.helloMessage;
+    }]);
+    var myApp2 = angular.module("myApp2", []);
+    myApp2.controller("SeccondController", [function() {
+        var self = this;
+        self.message = "Current messages";
+        self.changeMessage = function() {
+            self.message = "Changed message to " + self.message;
+        };
+    }]);
+    var myApp2Element = document.getElementById("myApp2ID");
+    angular.bootstrap(myApp2Element, ["myApp2"]);
+    var myApp3 = angular.module("myApp3", []);
+    myApp3.controller("ThirdController", [function() {
+        var self = this;
+        self.notes = [{
+            label: "label 1",
+            status: "status 11"
+        }, {
+            label: "label 2",
+            status: "status 12"
+        }, {
+            label: "label 3",
+            status: "status 13"
+        }, {
+            label: "label 4",
+            status: "status 14"
+        }, {
+            label: "label 5",
+            status: "status 15"
+        }, {
+            label: "label 6",
+            status: "status 16"
+        }, {
+            label: "label 7",
+            status: "status 17"
+        }];
+    }]);
+    var myApp3Element = document.getElementById("myApp3ID");
+    angular.bootstrap(myApp3Element, ["myApp3"]);
+    </script>
 
-        </div>
+</body>
 
-
-        <script type="text/javascript" src="../jslib/angular.js"></script>
-
-        <script type="text/javascript">
-        	var myApp1 = angular.module("myApp1", []);
-
-            myApp1.controller("FirstController", [function(){
-                var self = this;
-                self.helloMessage = "Hello moto";
-                self.goodbyeMessage = "Goodbye moto " + self.helloMessage;
-            }]);
-
-            var myApp2 = angular.module("myApp2", []);
-            myApp2.controller("SeccondController", [function(){
-                var self = this;
-                self.message = "Current messages";
-                self.changeMessage = function(){
-                    self.message = "Changed message to " + self.message;
-                };
-            }]);
-
-            var myApp2Element = document.getElementById("myApp2ID");
-            angular.bootstrap(myApp2Element, ["myApp2"]);
-
-
-            
-            var myApp3 = angular.module("myApp3", []);
-            myApp3.controller("ThirdController", [function(){
-                var self = this;
-                self.notes = [
-                    {label: "label 1", status: "status 11"},
-                    {label: "label 2", status: "status 12"},
-                    {label: "label 3", status: "status 13"},
-                    {label: "label 4", status: "status 14"},
-                    {label: "label 5", status: "status 15"},
-                    {label: "label 6", status: "status 16"},
-                    {label: "label 7", status: "status 17"}
-                ];
-            }]);
-            var myApp3Element = document.getElementById("myApp3ID");
-            angular.bootstrap(myApp3Element, ["myApp3"]);
-
-
-        </script>
-
-    </body>
 </html>
