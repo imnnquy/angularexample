@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script> -->
+		<script src="../lib/angular.min.js"></script>
+    </head>
+    <body ng-app="docsIsolateScopeDirective">
+		<div ng-controller="MyController">
+		  <my-customer info="naomi"></my-customer>
+		  <hr>
+		  <my-customer info="igor"></my-customer>
+		</div>
+		
+	    <script type="text/javascript">
+	    
+		    var myApp = angular.module('docsIsolateScopeDirective', []);
+		    myApp.controller('MyController', ['$scope', function($scope) {
+		      $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
+		      $scope.igor = { name: 'Igor', address: '123 Somewhere' };
+		    }])
+		    .directive('myCustomer', function() {
+		      return {
+		        restrict: 'E',
+		        scope: {
+		          customerInfo: '=info'
+		        },
+		        templateUrl: 'template/my-customer-iso.html'
+		      };
+		    });   
+		    
+	    </script>		
+    </body>
+</html>
+

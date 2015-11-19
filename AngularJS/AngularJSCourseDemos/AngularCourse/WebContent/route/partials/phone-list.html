@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+      <ul class="phones">
+        <li ng-repeat="phone in phones" class="thumbnail">
+          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+          
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

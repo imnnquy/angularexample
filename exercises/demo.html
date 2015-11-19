@@ -22,6 +22,15 @@
             <span data-ng-bind="Ctrl2.message"></span>
         </div>
 
+        <div id="myApp3ID" data-ng-app="myApp3" data-ng-controller="ThirdController as Ctrl">
+
+            <div data-ng-repeat="note in Ctrl.notes">
+                <span>{{note.label}}</span>
+                <span data-ng-bind="note.status"></span>
+            </div>
+
+        </div>
+
 
         <script type="text/javascript" src="../jslib/angular.js"></script>
 
@@ -29,22 +38,41 @@
         	var myApp1 = angular.module("myApp1", []);
 
             myApp1.controller("FirstController", [function(){
-                this.helloMessage = "Hello moto";
-                this.goodbyeMessage = "Goodbye moto " + this.helloMessage;
-                console.log('fack ya');
+                var self = this;
+                self.helloMessage = "Hello moto";
+                self.goodbyeMessage = "Goodbye moto " + self.helloMessage;
             }]);
 
             var myApp2 = angular.module("myApp2", []);
             myApp2.controller("SeccondController", [function(){
-                this.message = "Current messages";
-                this.changeMessage = function(){
-                    this.message = "Changed message to " + "SeccondController.helloMessage";
+                var self = this;
+                self.message = "Current messages";
+                self.changeMessage = function(){
+                    self.message = "Changed message to " + self.message;
                 };
-                console.log('fack ya 2');
             }]);
 
             var myApp2Element = document.getElementById("myApp2ID");
             angular.bootstrap(myApp2Element, ["myApp2"]);
+
+
+            
+            var myApp3 = angular.module("myApp3", []);
+            myApp3.controller("ThirdController", [function(){
+                var self = this;
+                self.notes = [
+                    {label: "label 1", status: "status 11"},
+                    {label: "label 2", status: "status 12"},
+                    {label: "label 3", status: "status 13"},
+                    {label: "label 4", status: "status 14"},
+                    {label: "label 5", status: "status 15"},
+                    {label: "label 6", status: "status 16"},
+                    {label: "label 7", status: "status 17"}
+                ];
+            }]);
+            var myApp3Element = document.getElementById("myApp3ID");
+            angular.bootstrap(myApp3Element, ["myApp3"]);
+
 
         </script>
 

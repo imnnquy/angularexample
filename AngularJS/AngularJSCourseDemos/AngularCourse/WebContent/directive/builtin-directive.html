@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script> -->
+		<script src="../lib/angular.min.js"></script>
+    </head>
+    <body ng-app="builtInDirective">
+
+		<div ng-controller="MainController">
+			<button ng-click="countUp()" ng-init="count=0">
+			  Increment
+			</button>
+			<span ng-bind="count"></span> 
+			<br><br>
+			<span ng-class="{ready:count>3}">Start!</span>
+			
+			<br><br>User List:
+			<div ng-repeat="user in userList">
+				{{user.name}}: {{user.age}}
+			</div>
+		</div>
+		
+	    <script type="text/javascript">
+	    
+		    var myApp = angular.module('builtInDirective', []);
+		    myApp.controller('MainController', function($scope) {
+		      $scope.count = 0;
+		      $scope.countUp = function(){
+		    	  $scope.count += 1;
+		      }
+		      $scope.userList = [{name: "Bao", age: "33"},
+		                         {name: "Ha", age: "32"}];
+		    });
+		    
+	    </script>	
+	    <style>
+			.ready{
+				color: blue;
+			};	    
+	    </style>	
+    </body>
+</html>
+
