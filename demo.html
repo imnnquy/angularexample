@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AngularJS Demonstration</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="csslib/bootstrap.css">
+
+</head>
+
+<body class="container">
+
+    <!-- First demo: Double Curly and ng-bind -->
+    <div class="ng-cloak" data-ng-app="myApp1" data-ng-controller="FirstController as Ctrl">
+        <button class="alert alert-success" data-ng-bind="Ctrl.demoTitle" data-toggle="collapse" data-target="#demo1"></button>
+        <div id="demo1" class="collapse in">
+            {{Ctrl.helloMessage}}
+            <br/> <span data-ng-bind="Ctrl.goodbyeMessage"></span>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Seccond demo: ng-click -->
+    <div id="myApp2ID" data-ng-app="myApp2" data-ng-controller="SeccondController as Ctrl2">
+        <button class="alert alert-success" data-ng-bind="Ctrl2.demoTitle" data-toggle="collapse" data-target="#demo2"></button>
+
+        <div id="demo2" class="collapse in">
+            <button class="btn btn-info" data-ng-click="Ctrl2.changeMessage()">Change Message</button>
+            <br/>
+            <span data-ng-bind="Ctrl2.message"></span>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Third demo: ng-repeat and child controller -->
+    <div id="myApp3ID" data-ng-app="myApp3" data-ng-controller="ThirdController as parCtrl">
+        <button class="alert alert-success" data-ng-bind="parCtrl.demoTitle" data-ng-show="parCtrl.demoTitle" data-toggle="collapse" data-target="#demo3"></button>
+
+        <div id="demo3" class="collapse in">
+            <button class="btn btn-success btn-lg" data-ng-click="parCtrl.addItem()">Add Item</button>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody class="tbody">
+                        <thead class="thead">
+                            <td class="td">Label</td>
+                            <td class="td">Status</td>
+                            <td class="td">Remove</td>
+                        </thead>
+                        <tr class="tr" data-ng-repeat="note in parCtrl.notes">
+                            <td class="td">
+                                <span class="label label-info ng-cloak">{{note.label}}</span>
+                            </td>
+                            <td class="td">
+                                <span class="label label-primary" data-ng-bind="note.status"></span></td>
+                            <td class="td">
+                                <button class="btn btn-danger btn-xs" data-ng-click="parCtrl.removeItem(note)">
+                                    <span class="glyphicon glyphicon-remove"></span> Remove
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div data-ng-controller="ChildThirdController as childCtrl">
+                <span class="ng-cloak">{{parCtrl.helloMessage}}</span>
+                <br/>
+                <span class="ng-cloak">{{childCtrl.helloMessage}}</span>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+
+    <!-- Fourth demo: ng-show, ng-hide and ng-class -->
+    <div id="myApp4ID" data-ng-app="myApp4" data-ng-controller="FourthController as Ctrl">
+        <button class="alert alert-success" data-ng-show="Ctrl.demoTitle" data-ng-bind="Ctrl.demoTitle" data-toggle="collapse" data-target="#demo4"></button>
+
+        <div id="demo4" class="collapse in">
+            <div data-ng-class="Ctrl.getNoteClass()" class="class-demo">ng-class</div>
+            <div ng-repeat="(author, note) in Ctrl.notes">
+                <span class="label label-info"> {{note.label}}</span>
+                <span class="author" ng-bind="author"></span>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+
+    <script type="text/javascript" src="jslib/angular.js"></script>
+    <script type="text/javascript" src="jslib/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="jslib/bootstrap.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
