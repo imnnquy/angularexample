@@ -10,6 +10,22 @@ function generateRandom(arrayLength) {
     return arr;
 }
 
+(function() {
+
+    'use strict';
+    var myApp = angular.module("myApp0", []);
+    myApp.controller('ZeroController', [function(){
+        var self = this;
+        self.expandAll = function(){
+            $(".collapse").collapse("show");
+        };
+        self.collapseAll = function(){
+            $(".collapse").collapse("hide");
+        }
+    }])
+
+})();
+
 
 
 (function() {
@@ -21,6 +37,10 @@ function generateRandom(arrayLength) {
         self.helloMessage = "Hello moto";
         self.goodbyeMessage = "Goodbye moto " + self.helloMessage;
     }]);
+
+
+    var myApp1Element = document.getElementById("myApp1ID");
+    angular.bootstrap(myApp1Element, ["myApp1"]);
 })();
 
 /* Second Demo */
