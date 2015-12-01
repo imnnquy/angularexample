@@ -144,7 +144,7 @@ function generateRandom(arrayLength) {
     var myApp = angular.module("myApp5", []);
     myApp.controller("FifthController", [function() {
         var self = this;
-        self.demoTitle = "5. ng-repeat track by ID";
+        self.demoTitle = "5. ng-repeat track by ID, Across Multiple HTML Elements";
         var notes = [{
             id: 1,
             label: 'First Note',

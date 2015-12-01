@@ -152,7 +152,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- Fifth demo: ng-repeat track by ID-->
@@ -168,12 +167,15 @@
                 <div class="panel-body">
 
                     <button data-ng-click="ctrl.changeNotes()">Change Data</button>
-                    <!-- START ng-repeat track by ID -->
+                    <!-- START ng-repeat track by ID, Across Multiple HTML Elements -->
                     <div>DOM Elements change every time someone clicks</div>
-                    <div data-ng-repeat="note in ctrl.notes1">
+                    <div data-ng-repeat-start="note in ctrl.notes1">
                         {{note.$$hashKey}}
                         <span class="label label-info"> {{note.label}} </span>
                         <span class="author" data-ng-bind="note.done"></span>
+                    </div>
+                    <div data-ng-repeat-end>
+                        <span class="author" data-ng-bind="note.id"></span>
                     </div>
                     <br/>
                     <div>DOM Elements are reused every time someone clicks</div>
@@ -182,7 +184,7 @@
                         <span class="label label-info"> {{note.label}} </span>
                         <span class="author" data-ng-bind="note.done"></span>
                     </div>
-                    <!-- END of ng-repeat track by ID -->
+                    <!-- END of ng-repeat track by ID, Across Multiple HTML Elements -->
 
                 </div>
             </div>
