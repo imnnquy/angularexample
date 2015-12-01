@@ -155,6 +155,41 @@
 
     </div>
 
+    <!-- Fifth demo: ng-repeat track by ID-->
+    <div id="myApp5ID" data-ng-app="myApp5" data-ng-controller="FifthController as ctrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#demo5" data-ng-bind="ctrl.demoTitle"></a>
+                </h4>
+            </div>
+
+            <div id="demo5" class="collapse panel-collapse">
+                <div class="panel-body">
+
+                    <button data-ng-click="ctrl.changeNotes()">Change Data</button>
+                    <!-- START ng-repeat track by ID -->
+                    <div>DOM Elements change every time someone clicks</div>
+                    <div data-ng-repeat="note in ctrl.notes1">
+                        {{note.$$hashKey}}
+                        <span class="label label-info"> {{note.label}} </span>
+                        <span class="author" data-ng-bind="note.done"></span>
+                    </div>
+                    <br/>
+                    <div>DOM Elements are reused every time someone clicks</div>
+                    <div data-ng-repeat="note in ctrl.notes2 track by note.id">
+                        {{note.$$hashKey}}
+                        <span class="label label-info"> {{note.label}} </span>
+                        <span class="author" data-ng-bind="note.done"></span>
+                    </div>
+                    <!-- END of ng-repeat track by ID -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <script type="text/javascript" src="jslib/angular.js"></script>
     <script type="text/javascript" src="jslib/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="jslib/bootstrap.js"></script>

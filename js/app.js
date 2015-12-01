@@ -124,6 +124,11 @@ function generateRandom(arrayLength) {
                 id: 2,
                 label: 'Second Note',
                 done: false
+            },
+            Angela: {
+                id: 0,
+                label: 'Fourth Note',
+                done: false
             }
         };
 
@@ -131,4 +136,51 @@ function generateRandom(arrayLength) {
 
     var myApp4Element = document.getElementById("myApp4ID");
     angular.bootstrap(myApp4Element, ["myApp4"]);
+})();
+
+/* Fifth Demo */
+(function() {
+    'use strict';
+    var myApp = angular.module("myApp5", []);
+    myApp.controller("FifthController", [function() {
+        var self = this;
+        self.demoTitle = "5. ng-repeat track by ID";
+        var notes = [{
+            id: 1,
+            label: 'First Note',
+            done: false,
+            someRandom: 31431
+        }, {
+            id: 2,
+            label: 'Second Note',
+            done: false
+        }, {
+            id: 3,
+            label: 'Finished Third Note',
+            done: true
+        }];
+        self.notes1 = angular.copy(notes);
+        self.notes2 = angular.copy(notes);
+        self.changeNotes = function() {
+            notes = [{
+                id: 1,
+                label: 'Changed Note',
+                done: false,
+                someRandom: 4242
+            }, {
+                id: 2,
+                label: 'Second Note',
+                done: false
+            }, {
+                id: 3,
+                label: 'Finished Third Note',
+                done: true
+            }];
+            self.notes1 = angular.copy(notes);
+            self.notes2 = angular.copy(notes);
+        };
+    }]);
+
+    var myApp5Element = document.getElementById("myApp5ID");
+    angular.bootstrap(myApp5Element, ["myApp5"]);
 })();
