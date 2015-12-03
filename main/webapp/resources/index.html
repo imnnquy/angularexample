@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>KCEditor</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link rel="stylesheet" href="libs/angular-ui-tree/angular-ui-tree.min.css" />
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css" />
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="modules/mainframe/styles/navigation-menu-mainframe.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  
+
+</head>
+<body ng-app="kceditWebApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+      <!-- Add your site or application content here -->
+      <div class="container" ng-cloak>
+        <div class="header" >
+        </div>
+
+
+        <div ui-view></div>
+
+        <div class="footer">
+          <div class="col-xs-12 text-center">&copy; Copyright 2015 Skillsoft Ireland Limited All rights reserved.
+
+          </div>
+          <div class="col-xs-12 text-center">
+            <img ng-src="images/powered-logo.png"></img>
+          </div>
+          <div class="col-xs-12 text-center">
+            <app-version />
+          </div>
+
+        </div>
+      </div>
+
+      <script src="libs/jquery/dist/jquery.js"></script>
+      <script src="libs/angular/angular.js"></script>
+      <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="libs/angular-animate/angular-animate.js"></script>
+      <script src="libs/angular-cookies/angular-cookies.js"></script>
+      <script src="libs/angular-resource/angular-resource.js"></script>
+      <script src="libs/angular-route/angular-route.js"></script>
+      <script src="libs/angular-sanitize/angular-sanitize.js"></script>
+      <script src="libs/angular-touch/angular-touch.js"></script>
+      <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="libs/angular-ui-tree/angular-ui-tree.js"></script>
+      <script src="libs/bootstrap/dist/js/ui-bootstrap.min.js"></script>
+      <script src="libs/ng-context-menu.js"></script>
+
+      <script src="scripts/app.js"></script>
+      <script src="scripts/directives.js"></script>
+      <script src="scripts/services.js"></script>
+      <script src="modules/mainframe/mainframeModule.js"></script>
+      <script src="modules/mainframe/scripts/controllers.js"></script>
+      <script src="modules/mainframe/scripts/services.js"></script>
+<!-- TEST UPLOAD FILE -->
+	<script data-require="ui-bootstrap@*" data-semver="0.12.1" src="libs/upload-module/ui-bootstrap-tpls-0.12.1.min.js"></script>
+	<script src="libs/upload-module/jquery-ui.js"></script>
+	<script src="libs/upload-module/jquery.fileupload.js"></script>
+	<script src="libs/upload-module/ng-file-upload.js"></script>
+ 	
+    </body>
+    </html>

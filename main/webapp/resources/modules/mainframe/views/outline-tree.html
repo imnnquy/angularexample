@@ -1,0 +1,46 @@
+<!-- Nested node template -->
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+
+    <div context-menu="onRightClick(message)"
+    context-menu-close="onClose(closeMessage)"
+    id=""     
+    data-target="menu-{{ node.id }}"
+    ng-class="{ 'highlight': panel.highlight, 'expanded': panel.expanded }">
+
+    <div class="btn btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+      <span ng-class="{
+        'glyphicon glyphicon-plus': collapsed,
+        'glyphicon glyphicon-minus': !collapsed
+      }"></span>
+
+    </div>
+    
+
+    <a class="ouline-tree-node" ng-click="getNodeData({{node}})">{{node.title}}
+    </a>
+    
+    <div ng-if = "node.type == 'page'" ng-include="'modules/mainframe/views/popup-menu/page-popup-menu.html'"></div>
+    <div ng-if = "node.type == 'common'" ng-include="'modules/mainframe/views/popup-menu/common-popup-menu.html'"></div>
+    <div ng-if = "node.type == 'block'" ng-include="'modules/mainframe/views/popup-menu/block-popup-menu.html'"></div>
+
+
+  </div>
+
+</div>
+
+<ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+  <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+  </li>
+</ol>
+</script>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div ui-tree = 'outlineTree' id="tree-root"  data-drag-enabled = "false">
+      <ol ui-tree-nodes ng-model="treeoutLine.outlineTreeData">
+        <li ng-repeat="node in treeoutLine.outlineTreeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
+  </div>
+</div>

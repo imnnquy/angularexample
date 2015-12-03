@@ -1,0 +1,36 @@
+  <div class="dropdown position-fixed" id="menu-{{ node.id }}">
+    <ul class="dropdown-menu" role="menu">
+      <li>
+        <a class="pointer" role="menuitem" tabindex="1"
+           ng-click="panel.highlight = true">Set as Homepage</a>
+      </li>
+      <li>
+        <a class="pointer" role="menuitem" tabindex="2"
+           ng-click="panel.highlight = false">
+           Copy Page...
+        </a>
+      </li>
+      <li>
+        <a class="pointer" role="menuitem" tabindex="3"
+           ng-click="panel.expanded = true">Copy Block...</a>
+      </li>
+      <li>
+        <a class="pointer" role="menuitem" tabindex="4"
+           ng-click="panel.expanded = false">
+           Add Block Template...
+        </a>
+      </li>
+      <li>
+        <a class="pointer" role="menuitem" tabindex="5"
+           ng-click="addPanel()">Delete</a>
+      </li>
+      <li>
+        <a href="https://github.com/ianwalter/ng-context-menu" role="menuitem"
+           tabindex="-1">Add Free-form Page</a>
+      </li>
+      <li>
+        <a class="pointer" role="menuitem" tabindex="5"
+           ng-click="addPanel()">Find...</a>
+      </li>
+    </ul>
+  </div>
