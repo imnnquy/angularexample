@@ -1,0 +1,171 @@
+.desktop #control {
+    text-align: center;
+}
+
+#game {
+    width: 90%;
+    margin: auto;
+}
+
+#big_game #game,
+#big_game #board,
+#big_game #cards {
+    max-width: 900px;
+}
+
+#big_game #start,
+#big_game #result {
+    top: 20%;
+    left: 33%;
+}
+
+#big_game #annonce_memory_geant {
+    padding-left: 100px;
+}
+
+@media (max-width: 959px) {
+    #big_game #annonce_memory_geant {
+        padding-left: 0px;
+    }
+}
+
+#control {
+    height: 15px;
+    margin: 20px 0 10px 0;
+    padding-left: 5px;
+}
+
+#control span {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    text-align: left;
+}
+
+.time_title {
+    width: 45px;
+    font-weight: bold;
+}
+
+.time_value {
+    width: 60px;
+    color: #e815f5;
+    margin-left: 20px;
+}
+
+.moves_title {
+    width: 60px;
+    font-weight: bold;
+}
+
+.moves_value {
+    width: 60px;
+    color: #e815f5;
+}
+
+#board {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#result {
+    width: 33%;
+    padding: 5% 0%;
+    top: 30%;
+    left: 33%;
+    background-color: #06000e;
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media (max-width: 479px) {
+    #result {
+        font-size: 15px;
+    }
+}
+
+#result:hover {
+    cursor: pointer;
+}
+
+#cards {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.semi-transparent {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.card {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    /*background-color: #4b258a;*/
+    margin-right: 6px;
+    margin-bottom: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    width: 13%;
+}
+
+@media (max-width: 600px) {
+    #big_game .card {
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+}
+
+.card img {
+    display: block;
+    width: 60%;
+}
+
+.cachee {
+    /*opacity: 0;*/
+}
+
+.retournee,
+.trouvee {
+    opacity: 1;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+#start {
+    width: 33%;
+    padding: 10% 0%;
+    top: 30%;
+    left: 33%;
+    background-color: #06000e;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media (max-width: 479px) {
+    #start {
+        font-size: 20px;
+    }
+}
+
+#start:hover {
+    cursor: pointer;
+}
