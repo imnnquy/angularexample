@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="csslib/bootstrap.css">
     <!-- <link rel="stylesheet" href="css/style.css"> -->
 
+    <style>
+    .username.ng-valid {
+        background-color: green;
+    }
+
+    .username.ng-dirty.ng-invalid-required {
+        background-color: red;
+    }
+
+    .username.ng-dirty.ng-invalid-minlength {
+        background-color: lightpink;
+    }
+</style>
+
 </head>
 
 <body class="container">
@@ -130,7 +144,7 @@
                 <div class="panel-body">
 
                     <!-- START ng-repeat over an Object -->
-                    <div data-ng-class="Ctrl.getNoteClass()" class="class-demo">ng-class</div>
+                    <div data-ng-class="Ctrl.getNoteClass()" class="clssdemo">ng-class</div>
                     <div ng-repeat="(author, note) in Ctrl.notes">
                         <span class="label label-info"> {{note.label}}</span>
                         <span class="author" ng-bind="author"></span>
@@ -191,6 +205,73 @@
         </div>
 
     </div>
+
+    <!-- Sixth demo: Forms-->
+    <div id="myApp6ID" data-ng-app="myApp6" data-ng-controller="SixthController as ctrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#demo6" data-ng-bind="ctrl.demoTitle"></a>
+                </h4>
+            </div>
+
+            <div id="demo6" class="collapse panel-collapse">
+                <div class="panel-body">
+                    <!-- Form, error messages, css class applied -->
+                    <form data-ng-submit="ctrl.submit()" name="quyForm">
+                        <input class="username" name="username" type="text" data-ng-model="ctrl.user.username1" required data-ng-minlength="4">
+                        <br/>
+                        <span data-ng-show="quyForm.username.$error.required">User name is required</span>
+                        <span data-ng-show="quyForm.username.$error.minlength">Minimum length required is 4</span>
+                        <br/>
+                        <input name="password" type="password" ng-model="ctrl.user.password1" required>
+                        <br/>
+                        <span data-ng-show="quyForm.password.$error.required">Password is required</span>
+                        <br/>
+                        
+                        <input type="checkbox" data-ng-model="ctrl.user.remember">
+                        <span>{{ctrl.user.remember}}</span>
+                        <input type="checkbox" ng-model="ctrl.user.agree" ng-true-value="'YES'" ng-false-value="'NO'">
+                        <span>{{ctrl.user.agree}}</span>
+                        <br/>
+                        <div>
+                            <input type="radio" name="gender" ng-model="ctrl.user.gender" value="male">Male
+                            <input type="radio" name="gender" ng-model="ctrl.user.gender" value="female">Female
+                        </div>
+                        <input type="submit" value="Submit" ng-disabled="quyForm.$invalid">
+                    </form>
+                    <!-- Form, error messages, css class applied -->
+
+                    <!-- Nested form: ng-form inside a html form -->
+                    <form name="myForm">
+                        <input type="text" class="username" name="uname" data-ng-model="ctrl.user.username" required placeholder="Username" data-ng-minlength="4" />
+                        <input type="password" class="password" name="pwd" data-ng-model="ctrl.user.password" placeholder="Password" required />
+                        <ng-form name="profile">
+                            <input type="text" name="firstName" data-ng-model="ctrl.user.profile.firstName" placeholder="First Name" required>
+                            <input type="text" name="middleName" placeholder="Middle Name" data-ng-model="ctrl.user.profile.middleName">
+                            <input type="text" name="lastName" placeholder="Last Name" data-ng-model="ctrl.user.profile.lastName" required>
+                            <input type="date" name="dob" placeholder="Date Of Birth" data-ng-model="ctrl.user.profile.dob">
+                        </ng-form>
+                        <br/>
+                        <div>
+                            <select data-ng-model="ctrl.country" data-ng-options="ctry.name for ctry in ctrl.countries track by ctry.id">
+                            </select>
+                            <span>Selected Country: {{ctrl.country.id}}</span>
+                        </div>
+                        <span ng-show="myForm.profile.$invalid">
+                            Please fill out the profile information
+                        </span>
+                        <br/>
+                        <input type="submit" value="Submit"  />
+                    </form>
+                    <!-- Nested form: ng-form inside a html form -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
     <script type="text/javascript" src="jslib/angular.js"></script>
     <script type="text/javascript" src="jslib/jquery-2.1.4.js"></script>

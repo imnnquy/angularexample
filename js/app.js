@@ -105,7 +105,7 @@ function generateRandom(arrayLength) {
         self.demoTitle = "4. ng-show, ng-hid, ng-class, ng-repeat over an Object";
         self.getNoteClass = function(){
             return {
-                testngclass: true
+                testngclass: true // if true, testngclass will be added, otherwise it won't be
             };
         };
 
@@ -183,4 +183,43 @@ function generateRandom(arrayLength) {
 
     var myApp5Element = document.getElementById("myApp5ID");
     angular.bootstrap(myApp5Element, ["myApp5"]);
+})();
+
+/* Sixth Demo */
+(function() {
+    'use strict';
+    var myApp = angular.module("myApp6", []);
+    myApp.controller("SixthController", ['$log', function($log) {
+        var self = this;
+        self.demoTitle = "6. Forms";
+
+
+        self.countries = [{
+            name: 'Vietnam',
+            id: 'vn'
+        }, {
+            name: 'Cambodia',
+            id: 'cam'
+        }, {
+            name: 'Laos',
+            id: 'lao'
+        }];
+
+        self.country = self.countries[0];
+
+
+        self.user = {};
+        self.user.remember = true;
+        self.user.agree = 'YES';
+        self.user.gender = 'female';
+
+        self.submit = function() {
+            console.log("Submited user: ", self.user);
+            $log.log("Logged using $log: ", self.user);
+        }
+        
+    }]);
+
+    var myApp6Element = document.getElementById("myApp6ID");
+    angular.bootstrap(myApp6Element, ["myApp6"]);
 })();
